@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="template.html"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Patient</title>
+</head>
+<body>
+<div layout:fragment="content1">
+    <div class="row mt-3">
+        <div class="col-md-6 offset-3">
+            <div class="card">
+                <div class="card-header">Nouveau Patient</div>
+                <div class="card-body">
+                    <div class="p-3">
+                        <form method="post" th:action="@{/savePatient}">
+                            <div class="mb-2">
+                                <label class="form-label">Name</label>
+                                <input class="form-control" name="nom" th:value="${patient.nom}" type="text">
+                                <span class="text-danger" th:errors="${patient.nom}"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Date de Naissance</label>
+                                <input class="form-control" name="dateNaissance" th:value="${patient.dateNaissance}"
+                                       type="date">
+                                <span class="text-danger" th:errors="${patient.dateNaissance}"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Malade</label>
+                                <input class="form-check-input" name="malade" th:checked="${patient.malade}"
+                                       type="checkbox">
+                                <span class="text-danger" th:errors="${patient.malade}"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Score</label>
+                                <input class="form-control" name="score" th:value="${patient.score}" type="text">
+                                <span class="text-danger" th:errors="${patient.score}"></span>
+                            </div>
+                            <button class="btn btn-success">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
